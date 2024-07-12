@@ -31,8 +31,8 @@ if __name__ == '__main__':
     # ------------
     parser = ArgumentParser()
     parser.add_argument('--gpu_ids', type=str, default='1,2', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--project_name', default='STENet_frames2_WHU', help='BIT_LEVIR | P2V_GZ | BIT_WHU | BIT_SYSU', type=str)
-    parser.add_argument('--checkpoint_root', default='/mnt/16t/laijintao/BPformer/checkpoints', type=str)
+    parser.add_argument('--project_name', default='STENet', help='BIT_LEVIR | P2V_GZ | BIT_WHU | BIT_SYSU', type=str)
+    parser.add_argument('--checkpoint_root', default='yourpath/checkpoints', type=str)
 
     # data
     parser.add_argument('--num_workers', default=8, type=int)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     args.checkpoint_dir = os.path.join(args.checkpoint_root, args.project_name)
     os.makedirs(args.checkpoint_dir, exist_ok=True)
     #  visualize dir
-    args.vis_dir = os.path.join('/mnt/16t/laijintao/BPformer/vis', args.project_name)
+    args.vis_dir = os.path.join('/yourpath/vis', args.project_name)
     os.makedirs(args.vis_dir, exist_ok=True)
 
     train(args)
