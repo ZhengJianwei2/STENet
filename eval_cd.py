@@ -15,7 +15,7 @@ def main():
     # ------------
     parser = ArgumentParser()
     parser.add_argument('--gpu_ids', type=str, default='4,5', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--project_name', default='WNet_1227_WHU', type=str)
+    parser.add_argument('--project_name', default='STENet', type=str)
     parser.add_argument('--print_models', default=False, type=bool, help='print models')
 
     # data
@@ -40,10 +40,10 @@ def main():
     # print(args.gpu_ids)
 
     #  checkpoints dir
-    args.checkpoint_dir = os.path.join('/mnt/16t/laijintao/BPformer/checkpoints', args.project_name)
+    args.checkpoint_dir = os.path.join('/yourpath/checkpoints', args.project_name)
     os.makedirs(args.checkpoint_dir, exist_ok=True)
     #  visualize dir
-    args.vis_dir = os.path.join('/mnt/16t/laijintao/BPformer/test', args.project_name)
+    args.vis_dir = os.path.join('/yourpath/test', args.project_name)
     os.makedirs(args.vis_dir, exist_ok=True)
 
     dataloader = utils.get_loader(args.data_name, img_size=args.img_size,
